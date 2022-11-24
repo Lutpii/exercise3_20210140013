@@ -48,6 +48,24 @@ namespace Exercise_Linked_List_B
                 return false;
         }
 
+        /*Method Traverse mengunjungi dan membaca semua isi list*/
+        public void traverse()
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList is empty. \n");
+            else
+            {
+                Console.WriteLine("\nRecords in the list are: \n");
+                Node currentNode;
+                currentNode = LAST.next;
+                while (currentNode != null)
+                {
+                    Console.Write(currentNode.rollNumber + " " + currentNode.name + "\n");
+                    currentNode = currentNode.next;
+                }
+                Console.Write(LAST.rollNumber + " " + LAST.name + "\n");
+            }
+        }
 
     }
     internal class Program
