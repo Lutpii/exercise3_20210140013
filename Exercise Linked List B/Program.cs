@@ -39,6 +39,16 @@ namespace Exercise_Linked_List_B
                 return (true);
         }
 
+        /*class list empty dan mendeklarasikan*/
+        public bool listEmpty()
+        {
+            if (LAST == null)
+                return true;
+            else
+                return false;
+        }
+
+
     }
     internal class Program
     {
