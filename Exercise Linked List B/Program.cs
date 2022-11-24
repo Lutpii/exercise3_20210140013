@@ -76,6 +76,48 @@ namespace Exercise_Linked_List_B
                 Console.WriteLine("\nThe first record in the list is:\n\n" + LAST.next.rollNumber + "     " + LAST.next.name);
         }
 
+        /*Method untuk menambahkan sebuah Node kedalam list*/
+        public void addNode()
+        {
+            int rollNo;
+            string nm;
+            Console.Write("\nEnter student number: ");
+            rollNo = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nEnter the Student's name: ");
+            nm = Console.ReadLine();
+            Node NodeBaru = new Node();
+            NodeBaru.rollNumber = rollNo;
+            NodeBaru.name = nm;
+            if (LAST == null || rollNo <= LAST.rollNumber) /*Node ditambahkan sebagai Nodebaru*/
+            {
+                if ((LAST != null) && (rollNo == LAST.rollNumber))
+                {
+                    Console.WriteLine("\nSame student number is not allowed\n");
+                    return;
+                }
+                NodeBaru.next = LAST;
+                LAST = NodeBaru;
+                return;
+            }
+            /*Menemukan lokasi Node baru didalam list*/
+            Node previous, current;
+            previous = LAST;
+            current = LAST;
+            while ((current != null) && (rollNo >= current.rollNumber))
+            {
+                if (rollNo == current.rollNumber)
+                {
+                    Console.WriteLine("\nSame student number is not allowed\n");
+                    return;
+                }
+                previous = current;
+                current = current.next;
+            }
+            /*Node baru akan ditempatkan diantara previous dan current*/
+            NodeBaru.next = current;
+            previous.next = NodeBaru;
+        }
+
     }
     internal class Program
     {
