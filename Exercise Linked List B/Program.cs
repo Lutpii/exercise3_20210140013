@@ -22,6 +22,23 @@ namespace Exercise_Linked_List_B
         {
             LAST = null;
         }
+
+        /*Method untuk menge-check apakah Node yang dimaksud ada didalam list*/
+        public bool Search(int rollNo, ref Node previous, ref Node current)
+        {
+            previous = LAST;
+            current = LAST;
+            while ((current != null) && (rollNo != current.rollNumber))
+            {
+                previous = current;
+                current = current.next;
+            }
+            if (current == null)
+                return (false);
+            else
+                return (true);
+        }
+
     }
     internal class Program
     {
